@@ -24,7 +24,7 @@ const getCountry = async (country) => {
 
 const main = async ()=>{
   try{
-    await getBackground()
+    //await getBackground()
     const country = await getCountry(countryInput.value);
     renderCountry(country)
   }catch(error) {

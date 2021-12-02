@@ -2,7 +2,7 @@
 const renderCountry = function (data) {
   console.log(data)
   const html = `
-  <article>
+  <article class= 'country'>
     <img class="country__img" src="${data[0].flags.png}" />
     <div class="country__data">
       <h3 class="country__name">${data[0].name.common}</h3>
@@ -20,19 +20,19 @@ const renderCountry = function (data) {
 };
 
 
- const displayCountry = function(event) {
-  event.preventDefault();
-  while (countriesContainer.firstChild) {
-    countriesContainer.removeChild(countriesContainer.firstChild);
-  }
-  return getCountry(countryInput.value);
-};
+//  const displayCountry = function(event) {
+//   event.preventDefault();
+//   while (countriesContainer.firstChild) {
+//     countriesContainer.removeChild(countriesContainer.firstChild);
+//   }
+//   return getCountry(countryInput.value);
+// };
 
-const displayCountries = function(event) {
-  event.preventDefault();
-  while (countriesContainer.firstChild) {
-    countriesContainer.removeChild(countriesContainer.firstChild);
-  }
-  return getCountryAndNeighbors(countryInput.value);
-};
+// const displayCountries = function(event) {
+//   event.preventDefault();
+//   while (countriesContainer.firstChild) {
+//     countriesContainer.removeChild(countriesContainer.firstChild);
+//   }
+//   return getCountryAndNeighbors(countryInput.value);
+// };
 
