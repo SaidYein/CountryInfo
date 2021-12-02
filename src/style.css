@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  border: 1px solid black;
+  width: 50%;
+}
+
+.world-logo img{
+  width: 96px;
+}
+
+.input-group{
+  border: 2px solid #01809e;
+  display: flex;
+  border-radius: 100px; 
+  padding: 4px;
+  width: 100%;
+}
+
+.form-control{
+  flex:1;
+  border: none;
+  text-align: center;
+  background-color: #fff;
+  color: #111111
+}
+
+.btn-country{
+  border: none;
+  background-color: #fff;
+  color: #01809e;
+}
