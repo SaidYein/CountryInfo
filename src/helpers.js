@@ -1,8 +1,8 @@
 // Formats response to look presentable on webpage
-const renderCountry = function (data) {
-  console.log(data)
+const renderCountry = function (data, className = '') {
+  //console.log(data)
   const html = `
-  <article class= 'country'>
+  <article class= 'country ${className}'>
     <img class="country__img" src="${data[0].flags.png}" />
     <div class="country__data">
       <h3 class="country__name">${data[0].name.common}</h3>
@@ -18,21 +18,3 @@ const renderCountry = function (data) {
   countriesContainer.insertAdjacentHTML('beforeend', html);
   countriesContainer.style.opacity = 1;
 };
-
-
-//  const displayCountry = function(event) {
-//   event.preventDefault();
-//   while (countriesContainer.firstChild) {
-//     countriesContainer.removeChild(countriesContainer.firstChild);
-//   }
-//   return getCountry(countryInput.value);
-// };
-
-// const displayCountries = function(event) {
-//   event.preventDefault();
-//   while (countriesContainer.firstChild) {
-//     countriesContainer.removeChild(countriesContainer.firstChild);
-//   }
-//   return getCountryAndNeighbors(countryInput.value);
-// };
-
