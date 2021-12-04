@@ -62,5 +62,13 @@ const main = async ()=>{
   }
 }
 
+var input = document.getElementById("myInput");
+
+input.addEventListener("keyup", (e) => {
+  if (e.key === 'Enter') {
+   e.preventDefault();
+   btn.click();
+  }
+});
 
 btn.addEventListener('click', main)
