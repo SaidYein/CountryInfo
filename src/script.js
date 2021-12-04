@@ -14,7 +14,6 @@ const getCountry = async (country) => {
 }
 
 const getNeighbors = async (countryData) => {
-  console.log(countryData)
   // below line allows us to get neighbors by country code. They came by country codes in 'borders' object not by name. 
   const alpha = 'https://restcountries.com/v3.1/alpha/';
   const neighbors = countryData[0].borders

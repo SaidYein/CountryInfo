@@ -9,7 +9,7 @@ const renderCountry = function (data, className = '') {
       <h4 class="country__region">${data[0].region}</h4>
       <p class="country__row"><span>👫</span>${(
         +data[0].population / 1000000
-      ).toFixed(1)} people</p>
+      ).toFixed(1)}m people</p>
       <p class="country__row"><span>🏛</span>${data[0].capital[0]}</p>
       <p class="country__row"><span>💰</span>${Object.keys(data[0].currencies)[0]}</p>
     </div>

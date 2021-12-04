@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-
 body {
   background-color: rgb(238, 238, 238);
   min-height: 100vh;
@@ -18,14 +17,14 @@ body {
   display: flex;
   flex-flow: column;
   align-items: center;
-  width: 50%;
   height:100vh;
+  width: 100%;
 }
 
 .search-bar{
-  width: 100%;
+  width: 50%;
   height:140px;
-  margin-top: 100px;
+  margin: 40px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,7 +68,8 @@ textarea:focus, input:focus{
   display: flex;
   font-size: .8rem;
   opacity: 1;
-  transition: opacity 1s;
+  transition: opacity 1s; 
+  flex-wrap: wrap;
 }
 
 .country {
