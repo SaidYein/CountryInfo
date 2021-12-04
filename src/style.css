@@ -67,8 +67,6 @@ textarea:focus, input:focus{
   /* margin-bottom: 8rem; */
   display: flex;
   font-size: .8rem;
-  opacity: 1;
-  transition: opacity 1s; 
   flex-wrap: wrap;
 }
 
