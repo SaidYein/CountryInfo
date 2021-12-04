@@ -1,44 +1,16 @@
+//? Error handling ?
+//? creating DOM function ?
+//? Modules ?
 // Selecting page elements
 const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 const countryInput = document.querySelector('.form-control')
 
-// a function to fetch data
-const fetchData = async (url, country) => {
-  const response = await fetch(`${url}${country}`)
-  if(response.ok){
-    return response.json()
-  }
-  throw new Error('Request failed!')
-}
-
-// a function to render data
-const renderError = (error) => {
-  console.log(error)
-}
-
-// Formats response to look presentable on webpage
-const renderCountry = function (data, className = '') {
-  
-  const html = `
-  <article class= 'country ${className}'>
-    <img class="country__img" src="${data[0].flags.png}" />
-    <div class="country__data">
-      <h3 class="country__name">${data[0].name.common}</h3>
-      <h4 class="country__region">${data[0].region}</h4>
-      <p class="country__row"><span>👫</span>${(
-        +data[0].population / 1000000
-      ).toFixed(1)} people</p>
-      <p class="country__row"><span>🏛</span>${data[0].capital[0]}</p>
-      <p class="country__row"><span>💰</span>${Object.keys(data[0].currencies)[0]}</p>
-    </div>
-  </article>
-  `;
-  countriesContainer.insertAdjacentHTML('beforeend', html);
-};
 
 // get country entered from UI
 const getCountry = async (country) => {
+  // //clears input
+  // countryInput.value= '';
   try {
     const url = 'https://restcountries.com/v3.1/name/';
     const response = await fetchData(url, country);
@@ -56,8 +28,12 @@ const getNeighbors = async (countryData) => {
 
   const neighborsArray = neighbors.map(
     async(neighbor) => {
-      const result = await fetchData(url, neighbor);
-      return result;
+      try{
+        const result = await fetchData(url, neighbor); //???? do we have to wait this even if renderCountry function is awaiting the fetch????
+        return result;
+      }catch(error) {
+        renderError(error)
+      }
     })
   return Promise.all(neighborsArray)
 }
@@ -65,37 +41,49 @@ const getNeighbors = async (countryData) => {
 //rendering neighbors
 const renderNeighbors = (data)=>{
   data.forEach((neighbor)=>{
-    renderCountry(neighbor, 'neighbor')
+    renderCountry(neighbor, 'neighbor') 
   })
 }
 
 // FETCHING DATA FOR BACKGROUND
-// const getBackground = async () => {
-//   const query = `https://api.unsplash.com/photos/random`
-//   const response  = await fetch(query)
-//   if(response.ok){
-//     console.log(response)
-//   }else {
-//     console.log('background failed')
-//   }
-// }
-
-
-
-const main = async ()=>{
-  countriesContainer.innerHTML= '';
+const getBackground = async () => {
+  const AccessKey = 'ZjaOU49sKA4ymGmVNuaGK8trPmr2wI09jw4eOm9_w3c';
+  // const secretKey = 'uoBJIfgv48GaEEDj3fAkGfCLYJLkABmCiY7XtHIQS0o'
+  const endpoint= `https://api.unsplash.com/photos/random/?client_id=${AccessKey}`
   try{
-    //await getBackground()
-    const country = await getCountry(countryInput.value);
-    renderCountry(country, "country")
-    const neighbors = await getNeighbors(country)
-    renderNeighbors(neighbors)
-    
+    const response  = await fetchData(endpoint)
+    return response
   }catch(error) {
     renderError(error)
   }
 }
 
+//rendering background
+// const changeBackground = async() => {
+//   try{
+//     const backgroundImage = await getBackground()
+//     document.body.style = `background:url(${backgroundImage.urls.regular})`
+//   }catch(error) {
+//     renderError(error)
+//   }
+// }
+
+const main = async ()=>{
+  //clearing country container
+  countriesContainer.innerHTML= '';
+  
+  try{
+    // changeBackground()
+    const country = await getCountry(countryInput.value);
+    renderCountry(country, "country")
+    const neighbors = await getNeighbors(country)
+    renderNeighbors(neighbors)
+  }catch(error) {
+    renderError(error) //?Do we have to catch error here? Because we catch errors on each time we fetch data?
+  }
+}
+
+//?Is there a simpler way for ENTER?
 // press enter to search
 const input = document.getElementById("myInput");
 input.addEventListener("keyup", (e) => {
@@ -107,3 +95,5 @@ input.addEventListener("keyup", (e) => {
 
 // click button to search
 btn.addEventListener('click', main)
+
+// window.addEventListener('load', changeBackground)

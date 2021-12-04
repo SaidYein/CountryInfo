@@ -5,12 +5,16 @@
 }
 
 body {
-  background-color: rgb(238, 238, 238);
+  background-color: #D2F1E4;
   min-height: 100vh;
+  min-width: 560px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .container {
@@ -29,17 +33,17 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.world-logo img{
-  width: 96px;
+.logo{
+  font-size: 100px;
 }
 
 .input-group{
-  border: 2px solid #01809e;
+  border: 3px solid #01809e;
   display: flex;
   border-radius: 100px; 
   padding: 4px;
   width: 100%;
-  background-color: #fff;
+  background-color: #D2F1E4;
 }
 
 .form-control{
@@ -48,31 +52,36 @@ body {
   border: none;
   margin: 0px 10px;
   text-align: center;
-  background-color: #fff;
+  background-color: #D2F1E4;
   color: #111111;
 }
 
-textarea:focus, input:focus{
+input:focus{
   outline: none;
+}
+
+input:focus::placeholder {
+  color: transparent;
 }
 
 .btn-country{
   font-size: 20px;
   border: none;
-  background-color: #fff;
+  background-color: #D2F1E4;
   color: #01809e;
 }
 
 .countries {
   /* margin-bottom: 8rem; */
   display: flex;
+  justify-content: center;
   font-size: .8rem;
   flex-wrap: wrap;
 }
 
 .country {
   background-color: #fff;
-  box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 .5rem 5rem .5rem rgba(0, 0, 0, 0.5);
   font-size: .8rem;
   border-radius: 0.7rem;
   margin: 0 2rem;
