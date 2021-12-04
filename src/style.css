@@ -118,7 +118,6 @@ textarea:focus, input:focus{
   font-size: 1.5rem;
 }
 
-
 .neighbor {
   transform: scale(0.8) translateY(1rem);
   margin-left: 0;
