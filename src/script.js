@@ -3,34 +3,46 @@ const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 const countryInput = document.querySelector('.form-control')
 
-const getCountry = async (country) => {
-  const url = 'https://restcountries.com/v3.1/name/';
+// a function to fetch data
+const fetchData = async (url, country) => {
   const response = await fetch(`${url}${country}`)
   if(response.ok){
     return response.json()
-  }else{
-    console.log('fetch failed')
+  }
+  throw new Error('Request failed!')
+}
+
+// a function to render data
+const renderError = (error) => {
+  console.log(error)
+}
+
+// get country entered from UI
+const getCountry = async (country) => {
+  try {
+    const url = 'https://restcountries.com/v3.1/name/';
+    const response = await fetchData(url, country);
+    return response;
+  }catch(error) {
+    renderError(error)
   }
 }
 
+// get country's neighbors
 const getNeighbors = async (countryData) => {
   // below line allows us to get neighbors by country code. They came by country codes in 'borders' object not by name. 
-  const alpha = 'https://restcountries.com/v3.1/alpha/';
+  const url = 'https://restcountries.com/v3.1/alpha/';
   const neighbors = countryData[0].borders
 
   const neighborsArray = neighbors.map(
     async(neighbor) => {
-      const neighborData = await fetch(`${alpha}${neighbor}`);
-
-      if(neighborData.ok){
-        return neighborData.json()
-      }else {
-        console.log('Requesting neighbors failed!')
-      }
-  })
+      const result = await fetchData(url, neighbor);
+      return result;
+    })
   return Promise.all(neighborsArray)
 }
 
+//rendering neighbors
 const renderNeighbors = (data)=>{
   data.forEach((neighbor)=>{
     renderCountry(neighbor, 'neighbor')
@@ -57,12 +69,12 @@ const main = async ()=>{
     renderNeighbors(neighbors)
     
   }catch(error) {
-    console.log(error)
+    renderError(error)
   }
 }
 
-var input = document.getElementById("myInput");
-
+// press enter to search
+const input = document.getElementById("myInput");
 input.addEventListener("keyup", (e) => {
   if (e.key === 'Enter') {
    e.preventDefault();
@@ -70,4 +82,5 @@ input.addEventListener("keyup", (e) => {
   }
 });
 
+// click button to search
 btn.addEventListener('click', main)
