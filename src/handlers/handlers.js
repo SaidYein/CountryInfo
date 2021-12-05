@@ -1,8 +1,8 @@
 "use strict";
 
-import { fetchData, renderError } from "../utils/utilities.js";
-import { renderCountry } from "../views/views.js";
-import { btn, countriesContainer, countryInput } from "../constants.js";
+import { fetchData } from "../utils/utilities.js";
+import { renderCountry, renderError } from "../views/views.js";
+
 // get country entered from UI
 export const getCountry = (country) => {
   // //clears input
@@ -19,14 +19,11 @@ export const getNeighbors = async (countryData) => {
   if (!neighbors) {
     return [];
   }
+
   const neighborsArray = neighbors.map(async (neighbor) => {
-    try {
-      const result = await fetchData(url, neighbor);
-      return result;
-    } catch (error) {
-      renderError(error);
-    }
+    return fetchData(url, neighbor);
   });
+
   return Promise.all(neighborsArray);
 };
 

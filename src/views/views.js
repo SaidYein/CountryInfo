@@ -20,3 +20,10 @@ export const renderCountry = function (data, className = "") {
   `;
   countriesContainer.insertAdjacentHTML("beforeend", html);
 };
+
+// a function to render data
+export const renderError = (error) => {
+  const errorText = document.createElement("h1");
+  errorText.textContent = error;
+  countriesContainer.appendChild(errorText);
+};

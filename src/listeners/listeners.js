@@ -4,8 +4,7 @@ import {
   getNeighbors,
   renderNeighbors,
 } from "../handlers/handlers.js";
-import { renderError } from "../utils/utilities.js";
-import { renderCountry } from "../views/views.js";
+import { renderCountry, renderError } from "../views/views.js";
 import { countriesContainer, countryInput } from "../constants.js";
 
 export const searchButtonListener = async () => {

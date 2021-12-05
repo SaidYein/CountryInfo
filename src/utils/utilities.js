@@ -7,10 +7,3 @@ export const fetchData = async (url, country = "") => {
   }
   throw new Error("Request failed!");
 };
-
-// a function to render data
-export const renderError = (error) => {
-  const errorText = document.createElement("h1");
-  errorText.textContent = error;
-  countriesContainer.appendChild(errorText);
-};
