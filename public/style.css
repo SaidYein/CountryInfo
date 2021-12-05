@@ -5,27 +5,24 @@
 }
 
 body {
-  background-color: #05668D;
+  background-color: #05668d;
   min-height: 100vh;
   min-width: 560px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
   display: flex;
   flex-flow: column;
   align-items: center;
-  height:100vh;
+  height: 100vh;
   width: 100%;
 }
 
-.search-bar{
+.search-bar {
   width: 40%;
   height: 140px;
   margin: 40px auto;
@@ -33,20 +30,20 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.logo{
+.logo {
   font-size: 100px;
 }
 
-.input-group{
+.input-group {
   /* border: 3px solid #01809e; */
   display: flex;
-  border-radius: 100px; 
+  border-radius: 100px;
   padding: 6px;
   width: 100%;
   background-color: #fff;
 }
 
-.form-control{
+.form-control {
   flex: 1;
   font-size: 16px;
   line-height: 1.5;
@@ -58,7 +55,7 @@ body {
   color: #111111;
 }
 
-input:focus{
+input:focus {
   outline: none;
 }
 
@@ -66,7 +63,7 @@ input:focus::placeholder {
   color: transparent;
 }
 
-.btn-country{
+.btn-country {
   font-size: 20px;
   border: none;
   background-color: #fff;
@@ -77,20 +74,19 @@ input:focus::placeholder {
   /* margin-bottom: 8rem; */
   display: flex;
   justify-content: center;
-  font-size: .8rem;
+  font-size: 0.8rem;
   flex-wrap: wrap;
 }
 
 .country {
   background-color: #fff;
-  box-shadow: 0 .5rem 5rem .5rem rgba(0, 0, 0, 0.5);
-  font-size: .8rem;
+  box-shadow: 0 0.5rem 5rem 0.5rem rgba(0, 0, 0, 0.5);
+  font-size: 0.8rem;
   border-radius: 0.7rem;
   margin: 0 2rem;
   overflow: hidden;
   width: 200px;
 }
-
 
 .country__img {
   width: 100%;
@@ -102,7 +98,7 @@ input:focus::placeholder {
 }
 
 .country__data {
-  padding: .5rem .25rem .5rem 1rem;
+  padding: 0.5rem 0.25rem 0.5rem 1rem;
 }
 
 .country__name {
@@ -111,14 +107,14 @@ input:focus::placeholder {
 }
 
 .country__region {
-  font-size: .7rem;
+  font-size: 0.7rem;
   margin-bottom: 1rem;
   text-transform: uppercase;
   color: #888;
 }
 
 .country__row:not(:last-child) {
-  margin-bottom: .2rem;
+  margin-bottom: 0.2rem;
 }
 
 .country__row span {
@@ -130,4 +126,8 @@ input:focus::placeholder {
 .neighbor {
   transform: scale(0.8) translateY(1rem);
   margin-left: 0;
+}
+
+.backside {
+  background-color: #01809e;
 }

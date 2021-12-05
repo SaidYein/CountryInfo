@@ -1,9 +1,10 @@
 "use strict";
-import { countriesContainer } from "../constants.js";
+import { countriesContainer, errorContainer } from "../constants.js";
 // Formats response to look presentable on webpage
 export const renderCountry = function (data, className = "") {
+  //add another piece of html for the backside of the cards. It will be visible upon particular className
   const html = `
-  <article class= 'country ${className}'>
+  <article class= 'country ${className}' >
     <img class="country__img" src="${data[0].flags.png}" />
     <div class="country__data">
       <h3 class="country__name">${data[0].name.common}</h3>
@@ -25,5 +26,5 @@ export const renderCountry = function (data, className = "") {
 export const renderError = (error) => {
   const errorText = document.createElement("h1");
   errorText.textContent = error;
-  countriesContainer.appendChild(errorText);
+  errorContainer.appendChild(errorText);
 };

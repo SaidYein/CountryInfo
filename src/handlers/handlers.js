@@ -1,12 +1,12 @@
 "use strict";
 
-import { fetchData } from "../utils/utilities.js";
 import { renderCountry, renderError } from "../views/views.js";
+import { countriesContainer, countryInput } from "../constants.js";
+import { fetchData } from "../utils/utilities.js";
+//import { countryCard } from "../constants.js";
 
 // get country entered from UI
 export const getCountry = (country) => {
-  // //clears input
-  // countryInput.value= '';
   const url = "https://restcountries.com/v3.1/name/";
   return fetchData(url, country);
 };
@@ -29,30 +29,34 @@ export const getNeighbors = async (countryData) => {
 
 //rendering neighbors
 export const renderNeighbors = (data) => {
+  //rendering data
   data.forEach((neighbor) => {
     renderCountry(neighbor, "neighbor");
   });
+  //adding event listener to countryCards to view more info when clicked //?It changes background for now?
+  const countryCards = document.querySelectorAll(".country");
+  countryCards.forEach((card) => {
+    card.addEventListener("click", moreInfoHandler);
+  });
 };
 
-// FETCHING DATA FOR BACKGROUND
-// const getBackground = async () => {
-//   const AccessKey = 'ZjaOU49sKA4ymGmVNuaGK8trPmr2wI09jw4eOm9_w3c';
-//   // const secretKey = 'uoBJIfgv48GaEEDj3fAkGfCLYJLkABmCiY7XtHIQS0o'
-//   const endpoint= `https://api.unsplash.com/photos/random/?client_id=${AccessKey}`
-//   try{
-//     const response  = await fetchData(endpoint)
-//     return response
-//   }catch(error) {
-//     renderError(error)
-//   }
-// }
+//below code (will) change the info on the card when clicked
+export const moreInfoHandler = (e) => {
+  e.target.parentNode.classList.toggle("backside");
+};
 
-//rendering background
-// const changeBackground = async() => {
-//   try{
-//     const backgroundImage = await getBackground()
-//     document.body.style = `background:url(${backgroundImage.urls.regular})`
-//   }catch(error) {
-//     renderError(error)
-//   }
-// }
+export const searchButtonListener = async () => {
+  //clearing country container
+  countriesContainer.innerHTML = "";
+
+  try {
+    // changeBackground()
+    const country = await getCountry(countryInput.value);
+    renderCountry(country, "country");
+    const neighbors = await getNeighbors(country);
+    renderNeighbors(neighbors);
+    //adding event listener to all cards
+  } catch (error) {
+    renderError(error);
+  }
+};
