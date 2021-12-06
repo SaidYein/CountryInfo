@@ -1,7 +1,11 @@
 "use strict";
 
 import { renderCountry, renderError } from "../views/views.js";
-import { countriesContainer, countryInput } from "../constants.js";
+import {
+  countriesContainer,
+  countryInput,
+  countryContainer,
+} from "../constants.js";
 import { fetchData } from "../utils/utilities.js";
 //import { countryCard } from "../constants.js";
 
@@ -28,20 +32,11 @@ export const getNeighbors = async (countryData) => {
 };
 
 //rendering neighbors
-const countryContainer = document.querySelector(".countries"); //?move it to constants?
 export const renderNeighbors = (data) => {
   //rendering data
   data.forEach((neighbor) => {
     renderCountry(neighbor, "neighbor");
   });
-  //adding event listener to country container to view more info when clicked
-  countryContainer.addEventListener("click", moreInfoHandler);
-};
-
-//below code (will) change the info on the card when clicked
-export const moreInfoHandler = (e) => {
-  const card = e.target.parentNode;
-  card.classList.toggle("backside");
 };
 
 export const searchButtonListener = async () => {
@@ -51,9 +46,10 @@ export const searchButtonListener = async () => {
   try {
     // changeBackground()
     const country = await getCountry(countryInput.value);
-    renderCountry(country, "country");
+    renderCountry(country, "searched");
     const neighbors = await getNeighbors(country);
     renderNeighbors(neighbors);
+
     //adding event listener to all cards
   } catch (error) {
     renderError(error);

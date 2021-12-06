@@ -138,12 +138,12 @@ input:focus::placeholder {
   margin-right: 1rem;
   font-size: 1.5rem;
 }
-
+.searched {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 .neighbor {
   transform: scale(0.8) translateY(1rem);
   margin-left: 0;
-}
-
-.backside {
-  background-color: #01809e;
 }
