@@ -14,7 +14,7 @@
 <body>
   <main class="container">
     <div class="search-bar">
-      <p class="logo">&#128373;</p>
+      <span class="logo"> &#128373; <span>Land Inspector</span></span>
       <div class="input-group">
         <input type="text" id="myInput" class="form-control" placeholder='Enter a country name'>
         <button class="btn-country" type="button">
@@ -22,12 +22,13 @@
         </button>
         </input>
       </div>
+      <p id:"definition"> Enter a country and click search for information on itself and its neighbors </p>
     </div>
 
 
+    <div class="error-container"></div>
     <div class="countries">
     </div>
-    <div class="error-container"></div>
   </main>
   <script type="module" src="./script.js"></script>
 </body>

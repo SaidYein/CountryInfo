@@ -30,8 +30,23 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+.search-bar p {
+  color: rgb(255, 243, 209);
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+  margin: 6px auto;
+  text-align: center;
+}
+
 .logo {
   font-size: 100px;
+}
+
+.logo span {
+  font-size: 44px;
+  color: #ffc532;
 }
 
 .input-group {
@@ -76,6 +91,7 @@ input:focus::placeholder {
   justify-content: center;
   font-size: 0.8rem;
   flex-wrap: wrap;
+  margin-top: 40px;
 }
 
 .country {

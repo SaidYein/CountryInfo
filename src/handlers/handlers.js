@@ -28,21 +28,20 @@ export const getNeighbors = async (countryData) => {
 };
 
 //rendering neighbors
+const countryContainer = document.querySelector(".countries"); //?move it to constants?
 export const renderNeighbors = (data) => {
   //rendering data
   data.forEach((neighbor) => {
     renderCountry(neighbor, "neighbor");
   });
-  //adding event listener to countryCards to view more info when clicked //?It changes background for now?
-  const countryCards = document.querySelectorAll(".country");
-  countryCards.forEach((card) => {
-    card.addEventListener("click", moreInfoHandler);
-  });
+  //adding event listener to country container to view more info when clicked
+  countryContainer.addEventListener("click", moreInfoHandler);
 };
 
 //below code (will) change the info on the card when clicked
 export const moreInfoHandler = (e) => {
-  e.target.parentNode.classList.toggle("backside");
+  const card = e.target.parentNode;
+  card.classList.toggle("backside");
 };
 
 export const searchButtonListener = async () => {
