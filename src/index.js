@@ -1,7 +1,7 @@
 "use strict";
 
-import { btn } from "./src/constants.js";
-import { searchButtonListener } from "./src/handlers/handlers.js";
+import { btn } from "./constants.js";
+import { searchButtonListener } from "./handlers/handlers.js";
 
 // press enter to search
 const input = document.getElementById("myInput");
