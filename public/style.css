@@ -7,7 +7,6 @@
 body {
   background-color: #05668d;
   min-height: 100vh;
-  min-width: 560px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,12 +44,11 @@ body {
 }
 
 .logo span {
-  font-size: 44px;
+  font-size: 40px;
   color: #ffc532;
 }
 
 .input-group {
-  /* border: 3px solid #01809e; */
   display: flex;
   border-radius: 100px;
   padding: 6px;
@@ -86,7 +84,6 @@ input:focus::placeholder {
 }
 
 .countries {
-  /* margin-bottom: 8rem; */
   display: flex;
   justify-content: center;
   font-size: 0.8rem;
@@ -146,4 +143,25 @@ input:focus::placeholder {
 .neighbor {
   transform: scale(0.8) translateY(1rem);
   margin-left: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .logo span {
+    font-size: 32px;
+  }
+  .logo {
+    font-size: 72px;
+  }
+  .search-bar {
+    width: 410px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo span {
+    display: none;
+  }
+  .logo {
+    font-size: 72px;
+  }
 }
