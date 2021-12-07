@@ -7,6 +7,12 @@ API Project
 <p><strong>Land Inspector</strong> app is created by Html CSS and JavaScript. In this app, we use API to get and render basic data about a country and its neighbors by entering a value to input field on the screen</p>
 <image src="./public/screenshot.png"></image>
 
+### Demo
+
+<p>Do you know what are the bordering countries of Japan? What is the population of Russia? Which currency does Ghana use? <strong><a href="https://saidyein.github.io/CountryInfo/">LandInspector</a></strong> answers all these questions in a sec. Give it a try!
+
+<a href= "https://saidyein.github.io/CountryInfo/"> Land Inspector App</a>
+
 ### Features
 
 - This is a single page application
@@ -37,11 +43,10 @@ API Project
 |
 |____src
 | |____constants.js
-| |____index.html
+| |____script.js
 | |____.DS_Store
 | |____utils
 | | |____utilities.js
-| |____script.js
 | |____views
 | | |____views.js
 | |____listeners
@@ -49,6 +54,13 @@ API Project
 | |____handlers
 | | |____handlers.js
 |
+|____index.html
 |____README.md
 
 ```
+
+### Suggestions
+
+<p>If you have anything to contribute, do not hesitate to do so by adding an issue <a href="https://github.com/SaidYein/CountryInfo/issues">here</a></p>
+
+<footer> Created by <a href="https://github.com/SaidYein">SaidYein</a></footer>
