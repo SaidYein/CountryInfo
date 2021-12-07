@@ -1,13 +1,8 @@
 "use strict";
 
 import { renderCountry, renderError } from "../views/views.js";
-import {
-  countriesContainer,
-  countryInput,
-  countryContainer,
-} from "../constants.js";
+import { countriesContainer, countryInput } from "../constants.js";
 import { fetchData } from "../utils/utilities.js";
-//import { countryCard } from "../constants.js";
 
 // get country entered from UI
 export const getCountry = (country) => {
@@ -23,11 +18,9 @@ export const getNeighbors = async (countryData) => {
   if (!neighbors) {
     return [];
   }
-
   const neighborsArray = neighbors.map(async (neighbor) => {
     return fetchData(url, neighbor);
   });
-
   return Promise.all(neighborsArray);
 };
 
@@ -44,7 +37,10 @@ export const searchButtonListener = async () => {
   countriesContainer.innerHTML = "";
 
   try {
-    // changeBackground()
+    const errorText = document.querySelector("h1");
+    if (errorText) {
+      errorText.innerHTML = "";
+    }
     const country = await getCountry(countryInput.value);
     renderCountry(country, "searched");
     const neighbors = await getNeighbors(country);

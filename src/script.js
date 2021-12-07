@@ -14,5 +14,3 @@ input.addEventListener("keyup", (e) => {
 
 // click button to search
 btn.addEventListener("click", searchButtonListener);
-
-// window.addEventListener('load', changeBackground)

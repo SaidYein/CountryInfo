@@ -28,7 +28,13 @@ export const renderCountry = function (data, className = "") {
 
 // a function to render data
 export const renderError = (error) => {
-  const errorText = document.createElement("h1");
-  errorText.textContent = error;
-  errorContainer.appendChild(errorText);
+  const errorText = document.querySelector("h1");
+  if (errorText) {
+    errorText.textContent = error;
+    errorContainer.appendChild(errorText);
+  } else {
+    const errorText = document.createElement("h1");
+    errorText.textContent = error;
+    errorContainer.appendChild(errorText);
+  }
 };
